@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bch0wh60xo6f8"]
 
 [ext_resource type="Texture2D" uid="uid://kjn0ydwhbtr7" path="res://assets/player_kranil/idle_1.png" id="1_f1ej7"]
+[ext_resource type="Script" uid="uid://b57yst8ehyrrx" path="res://scripts/player.gd" id="1_oprun"]
 [ext_resource type="Texture2D" uid="uid://b4wc203a5lcyq" path="res://assets/player_kranil/idle_2.png" id="2_oprun"]
 [ext_resource type="Texture2D" uid="uid://dprhwphnxou2h" path="res://assets/player_kranil/idle_3.png" id="3_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://mr0mekwc4mp4" path="res://assets/player_kranil/idle_4.png" id="4_qfm1y"]
@@ -84,12 +85,13 @@ animations = [{
 radius = 44.0
 
 [node name="Player" type="CharacterBody2D" unique_id=441317091]
+script = ExtResource("1_oprun")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=732706101]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=118402575]
 sprite_frames = SubResource("SpriteFrames_pf23h")
-animation = &"run"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=439200308]
 position = Vector2(0, 3)

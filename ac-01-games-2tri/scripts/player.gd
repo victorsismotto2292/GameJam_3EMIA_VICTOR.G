@@ -1,81 +1,79 @@
 extends CharacterBody2D
 
-signal died
+# Configurações de movimento
+var speed = 300.0
+const JUMP_VELOCITY = -400.0
 
-@export var walk_speed: float = 230.0
-@export var run_speed: float = 360.0
-@export var jump_velocity: float = -520.0
-@export var double_jump_velocity: float = -360.0
-@export var acceleration: float = 1600.0
-@export var friction: float = 1900.0
-@export var fall_limit: float = 920.0
+# Controle de estado
+var is_dead = false
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
-var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-var jumps_left: int = 2
-var start_position: Vector2
-var is_dead: bool = false
+# Referências aos nós
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
-	start_position = global_position
-	add_to_group("player")
-	animated_sprite.play("idle")
+	print("Player pronto para a aventura!")
+
+func die():
+	if is_dead:
+		return
+		
+	is_dead = true
+	print("O personagem morreu!")
+	
+	# Desativar processamento e colisão
+	set_physics_process(false)
+	# Ocultar o personagem para dar feedback de morte
+	animated_sprite_2d.visible = false
+	
+	# Pequeno atraso para o jogador ver a morte
+	await get_tree().create_timer(0.5).timeout
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-
+		
+	# Adiciona gravidade
 	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		jumps_left = 2
+		velocity += get_gravity() * delta
 
-	_handle_jump()
-	_handle_horizontal_movement(delta)
-	_update_animation()
+	# Pulo
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	# Direção e Movimento
+	var direction := Input.get_axis("left", "right")
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		
+	# Gerenciamento de Animações
+	update_animations(direction)
+	
+	# Inverter o Sprite
+	if direction > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction < 0:
+		animated_sprite_2d.flip_h = true
+			
 	move_and_slide()
 
-	if global_position.y > fall_limit:
-		die()
-
-func _handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and jumps_left > 0:
-		if is_on_floor():
-			velocity.y = jump_velocity
+func update_animations(direction):
+	if is_on_floor():
+		if direction == 0:
+			animated_sprite_2d.play("idle")
 		else:
-			velocity.y = double_jump_velocity
-		jumps_left -= 1
-
-func _handle_horizontal_movement(delta: float) -> void:
-	var direction := Input.get_axis("left", "right")
-	var target_speed := run_speed if Input.is_action_pressed("run") else walk_speed
-
-	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * target_speed, acceleration * delta)
-		animated_sprite.flip_h = direction < 0
+			animated_sprite_2d.play("walk")
 	else:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		animated_sprite_2d.play("jump")
 
-func _update_animation() -> void:
-	if not is_on_floor():
-		animated_sprite.play("jump")
-	elif abs(velocity.x) < 15.0:
-		animated_sprite.play("idle")
-	elif Input.is_action_pressed("run"):
-		animated_sprite.play("run")
-	else:
-		animated_sprite.play("walk")
-
-func die() -> void:
-	if is_dead:
-		return
-	is_dead = true
-	died.emit()
-
-func reset_to_start(new_start: Vector2 = start_position) -> void:
-	global_position = new_start
-	velocity = Vector2.ZERO
-	jumps_left = 2
-	is_dead = false
-	animated_sprite.play("idle")
+# Função para o bônus de velocidade (conforme o PDF)
+func apply_speed_boost(multiplier: float, duration: float):
+	var original_speed = speed
+	speed *= multiplier
+	print("Bônus de velocidade ativado!")
+	await get_tree().create_timer(duration).timeout
+	speed = original_speed
+	print("Bônus de velocidade encerrado.")
