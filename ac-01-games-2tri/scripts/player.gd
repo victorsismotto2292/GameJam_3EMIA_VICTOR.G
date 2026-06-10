@@ -4,8 +4,8 @@ extends CharacterBody2D
 const SPEED = 150.0
 const RUN_SPEED = 250.0
 const JUMP_VELOCITY = -400.0
-const DOUBLE_JUMP_VELOCITY = -300.0
-const MAX_JUMPS = 2
+const DOUBLE_JUMP_VELOCITY = -300.0 # Para pulo-duplo
+const MAX_JUMPS = 2 # Para pulo-duplo
 
 var current_jumps = 0
 var is_dead = false

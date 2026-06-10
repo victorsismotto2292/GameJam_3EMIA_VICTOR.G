@@ -5,3 +5,11 @@
 [node name="level" type="Node2D" unique_id=657813028]
 
 [node name="Player" parent="." unique_id=441317091 instance=ExtResource("1_2q6dc")]
+
+[node name="Tilemap" type="Node2D" parent="." unique_id=322709704]
+
+[node name="Chão" type="TileMapLayer" parent="Tilemap" unique_id=1498118899]
+
+[node name="Fundo" type="TileMapLayer" parent="Tilemap" unique_id=1836222931]
+
+[node name="Itens e Plataformas" type="TileMapLayer" parent="Tilemap" unique_id=250943187]
