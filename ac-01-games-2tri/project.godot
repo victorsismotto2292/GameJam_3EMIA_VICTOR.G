@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="AC01_GAMES_2TRI"
+config/name="AC02_GAMES_2TRI"
 run/main_scene="uid://db7gsg6wdkycf"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [input]
