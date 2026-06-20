@@ -1281,6 +1281,7 @@ texture_region_size = Vector2i(70, 70)
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.01449, 14.568556, 6.6547737, 15.108133, 19.065025, 14.928274, -19.065025, 14.928274)
 4:1/0 = 0
 5:1/0 = 0
 6:1/0 = 0
@@ -7230,7 +7231,6 @@ sources/0 = SubResource("TileSetAtlasSource_2r41h")
 [node name="level" type="Node2D" unique_id=657813028]
 
 [node name="Player" parent="." unique_id=441317091 instance=ExtResource("1_2q6dc")]
-z_index = 1
 position = Vector2(-2994, -3)
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=322709704]
