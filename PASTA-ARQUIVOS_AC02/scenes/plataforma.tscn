@@ -1,3 +1,27 @@
 [gd_scene format=3 uid="uid://bifdhr2ex5cc3"]
 
+[ext_resource type="Texture2D" uid="uid://xt2sr64rnmao" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/stoneHalfLeft.png" id="1_ke8ey"]
+[ext_resource type="Texture2D" uid="uid://kddsuv6e0cj7" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/stoneHalfMid.png" id="2_14w5t"]
+[ext_resource type="Texture2D" uid="uid://cu85cnl2u8bc0" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/stoneHalfRight.png" id="3_sfnd5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(210, 42)
+
 [node name="Plataforma" type="AnimatableBody2D" unique_id=2116727331]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007380346]
+position = Vector2(70, -15)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=810853914]
+
+[node name="Plat_Esquerda" type="Sprite2D" parent="Node2D" unique_id=2096046434]
+texture = ExtResource("1_ke8ey")
+
+[node name="Plat_Meio" type="Sprite2D" parent="Node2D" unique_id=833109618]
+position = Vector2(70, 0)
+texture = ExtResource("2_14w5t")
+
+[node name="Plat_Direita" type="Sprite2D" parent="Node2D" unique_id=1737592669]
+position = Vector2(140, 0)
+texture = ExtResource("3_sfnd5")
