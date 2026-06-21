@@ -34,7 +34,9 @@ frame_progress = 0.6154784
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="FloorRight" type="RayCast2D" parent="." unique_id=624750185]
-target_position = Vector2(24, 30)
+position = Vector2(24, 33)
+target_position = Vector2(0, 12)
 
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
-target_position = Vector2(-24, 30)
+position = Vector2(-24, 33)
+target_position = Vector2(0, 12)

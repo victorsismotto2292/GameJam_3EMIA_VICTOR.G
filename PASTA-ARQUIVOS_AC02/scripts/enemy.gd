@@ -24,12 +24,15 @@ func _physics_process(delta):
 	# Garantindo gravidade aplicada ao inimigo:
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	else:
+		velocity.y = 0.0
 		
-	# Invertendo posição:
-	if not floor_left.is_colliding():
-		direction = 1
-	if not floor_right.is_colliding():
-		direction = -1
+	# Invertendo posição (verificação com elif para evitar conflito simultâneo):
+	if is_on_floor():
+		if not floor_left.is_colliding():
+			direction = 1
+		elif not floor_right.is_colliding():
+			direction = -1
 	
 	# Aplicando velocidade no eixo x:
 	velocity.x = direction * speed
