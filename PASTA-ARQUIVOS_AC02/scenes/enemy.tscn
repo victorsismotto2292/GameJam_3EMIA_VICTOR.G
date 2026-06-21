@@ -25,7 +25,7 @@ size = Vector2(40, 40)
 collision_layer = 2
 collision_mask = 1
 floor_constant_speed = true
-floor_snap_length = 4.0
+floor_snap_length = 8.0
 script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=864124750]
@@ -34,13 +34,13 @@ animation = &"spin_walk"
 autoplay = "spin_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492632296]
-position = Vector2(0, 10)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_enemy")
 
 [node name="FloorRight" type="RayCast2D" parent="." unique_id=624750185]
 position = Vector2(25, 0)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 45)
 
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
 position = Vector2(-25, 0)
-target_position = Vector2(0, 40)
+target_position = Vector2(0, 45)

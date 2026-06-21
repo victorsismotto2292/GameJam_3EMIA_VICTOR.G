@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 # CONSTANTES
 const speed = 80.0
-const gravity = 1000.0
+const gravity = 1200.0
 
 # VARIÁVEIS
 var direction = 1
@@ -17,25 +17,25 @@ var direction = 1
 # FUNÇÕES
 
 func _physics_process(delta):
-	# Gravidade simples
+	# Aplicando gravidade
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		velocity.y = 0
 		
-	# Detecção de virada (borda ou parede)
+	# Lógica de patrulha: vira ao chegar na borda ou bater na parede
 	if is_on_floor():
 		if direction == 1 and (not floor_right.is_colliding() or is_on_wall()):
 			direction = -1
 		elif direction == -1 and (not floor_left.is_colliding() or is_on_wall()):
 			direction = 1
 	
-	# Movimento horizontal
+	# Aplica velocidade horizontal
 	velocity.x = direction * speed
 	
-	# Visual
+	# Visual e animação
 	anim.flip_h = direction > 0
 	anim.play("spin_walk")
 	
-	# Movimentação física
+	# Movimentação física com snap para evitar trepidação
 	move_and_slide()
