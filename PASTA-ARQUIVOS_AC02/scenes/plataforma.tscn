@@ -5,12 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cu85cnl2u8bc0" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/stoneHalfRight.png" id="3_sfnd5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(210, 42)
+size = Vector2(210, 18)
 
 [node name="Plataforma" type="AnimatableBody2D" unique_id=2116727331]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007380346]
-position = Vector2(70, -15)
+position = Vector2(70, -3)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=810853914]
