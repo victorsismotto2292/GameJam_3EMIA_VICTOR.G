@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds5spukxm824e"
-path="res://.godot/imported/cakeHalf.png-ff2d2714e7d2f84b41c67c6b7db8c8b7.ctex"
+uid="uid://drxldbro30wf4"
+path="res://.godot/imported/cakeCliffRightAlt.png-6b9cb0cf33ea2efb53c2f4685af5f95b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Kenney-Platformer-art-deluxe/Candy expansion/Tiles/cakeHalf.png"
-dest_files=["res://.godot/imported/cakeHalf.png-ff2d2714e7d2f84b41c67c6b7db8c8b7.ctex"]
+source_file="res://assets/Kenney-Platformer-art-deluxe/Candy expansion/Tiles/cakeCliffRightAlt.png"
+dest_files=["res://.godot/imported/cakeCliffRightAlt.png-6b9cb0cf33ea2efb53c2f4685af5f95b.ctex"]
 
 [params]
 
