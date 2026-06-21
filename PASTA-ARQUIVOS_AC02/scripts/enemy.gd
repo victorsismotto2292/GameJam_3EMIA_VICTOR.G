@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 # CONSTANTES
 const speed = 80.0
-const gravity = 980.0 # Gravidade padrão mais forte para evitar flutuação
+const gravity = 980.0
 
 # VARIÁVEIS
 var direction = 1
@@ -21,22 +21,21 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		velocity.y = 10.0 # Pequena força para baixo constante para manter contato com o chão
+		velocity.y = 0 # Reseta a velocidade vertical
 		
-	# Invertendo direção ao detectar fim da plataforma (somente se estiver no chão):
+	# Invertendo direção ao detectar fim da plataforma ou colisão lateral:
 	if is_on_floor():
-		if direction == 1 and not floor_right.is_colliding():
+		if direction == 1 and (not floor_right.is_colliding() or is_on_wall()):
 			direction = -1
-		elif direction == -1 and not floor_left.is_colliding():
+		elif direction == -1 and (not floor_left.is_colliding() or is_on_wall()):
 			direction = 1
 	
-	# Aplicando velocidade no eixo x:
+	# Aplicando velocidade:
 	velocity.x = direction * speed
 	
-	# Rotacionando eixo do personagem:
+	# Atualizando animação e direção visual:
 	anim.flip_h = direction > 0
-	# Rodando animação spin_walk:
 	anim.play("spin_walk")
 	
-	# Movendo o inimigo:
+	# Movendo o inimigo com suporte a snap no chão:
 	move_and_slide()
