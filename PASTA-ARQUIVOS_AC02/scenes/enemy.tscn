@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://w5g36vajl7cn"]
 
+[ext_resource type="Texture2D" uid="uid://c7gi408p1h8t6" path="res://assets/Kenney-Platformer-art-deluxe/Extra animations and enemies/Enemy sprites/spinner.png" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://bwsv857m5d8kr" path="res://assets/Kenney-Platformer-art-deluxe/Extra animations and enemies/Enemy sprites/spinner_spin.png" id="2_4ra3w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_md0e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ra3w")
+}],
+"loop": 1,
+"name": &"spin",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 33.0
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1506588155]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=864124750]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.45062622
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492632296]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="FloorRight" type="RayCast2D" parent="." unique_id=624750185]
+target_position = Vector2(24, 30)
+
+[node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
+target_position = Vector2(-24, 30)
