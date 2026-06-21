@@ -1,41 +1,34 @@
-# CÓDIGO RETIRADO DAS APOSTILAS DE INIMIGO E KILLZONE E REFORMULADO COM BASE NO ESTILO DO JOGO
+# Arquivo: enemy.gd
 
 extends CharacterBody2D
 
-# CONSTANTES
-const speed = 80.0
-const gravity = 980.0
+const SPEED = 80.0
+const GRAVITY = 800.0
 
-# VARIÁVEIS
 var direction = 1
 
-# VARIÁVEIS REFERENCIAIS
-@onready var floor_left: RayCast2D = $FloorLeft 
-@onready var floor_right: RayCast2D = $FloorRight 
+# Variáveis que referenciam os nós da cena
+@onready var floor_left: RayCast2D = $FloorLeft # após o $, o nome deve ser o mesmo 
+																								# nome do nó
+@onready var floor_right: RayCast2D = $FloorRight
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-# FUNÇÕES
-
 func _physics_process(delta):
-	# Aplicando gravidade:
+	# Garante que a gravidade seja aplicada ao inimigo caso ele não esteja no chão
 	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		velocity.y = 0 # Reseta a velocidade vertical
-		
-	# Invertendo direção ao detectar fim da plataforma ou colisão lateral:
-	if is_on_floor():
-		if direction == 1 and (not floor_right.is_colliding() or is_on_wall()):
-			direction = -1
-		elif direction == -1 and (not floor_left.is_colliding() or is_on_wall()):
-			direction = 1
-	
-	# Aplicando velocidade:
-	velocity.x = direction * speed
-	
-	# Atualizando animação e direção visual:
-	anim.flip_h = direction > 0
+		velocity.y += GRAVITY * delta
+
+	# Inverte ao detectar borda com o método padrão do Raycast2D is_colliding()
+	if not floor_left.is_colliding():
+		direction = 1
+	if not floor_right.is_colliding():
+		direction = -1
+		# Aplica velocidade no eixo x
+	velocity.x = direction * SPEED
+	# Vira o sprite do personagem se estiver indo para a direita
+	anim.flip_h =  direction > 0
+	# Roda a animação de caminhar
 	anim.play("spin_walk")
-	
-	# Movendo o inimigo com suporte a snap no chão:
+		
+		# Move o inimigo
 	move_and_slide()

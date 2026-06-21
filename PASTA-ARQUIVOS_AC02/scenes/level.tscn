@@ -7315,7 +7315,7 @@ position = Vector2(-2994, -3)
 
 [node name="Enemy" parent="." unique_id=1506588155 instance=ExtResource("5_2r41h")]
 z_index = 1
-position = Vector2(-1667, -131)
+position = Vector2(-1665, -119)
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=322709704]
 
