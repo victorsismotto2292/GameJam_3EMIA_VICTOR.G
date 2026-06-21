@@ -1,34 +1,55 @@
-# Arquivo: enemy.gd
+# CÓDIGO RETIRADO DAS APOSTILAS DE INIMIGO E KILLZONE E REFORMULADO COM BASE NO ESTILO DO JOGO
 
 extends CharacterBody2D
 
-const SPEED = 80.0
-const GRAVITY = 800.0
+# CONSTANTES
+const speed = 80.0
+const gravity = 1200.0
 
+# VARIÁVEIS
 var direction = 1
 
-# Variáveis que referenciam os nós da cena
-@onready var floor_left: RayCast2D = $FloorLeft # após o $, o nome deve ser o mesmo 
-																								# nome do nó
-@onready var floor_right: RayCast2D = $FloorRight
+# VARIÁVEIS REFERENCIAIS
+@onready var floor_left: RayCast2D = $FloorLeft 
+@onready var floor_right: RayCast2D = $FloorRight 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-func _physics_process(delta):
-	# Garante que a gravidade seja aplicada ao inimigo caso ele não esteja no chão
-	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+# FUNÇÕES
 
-	# Inverte ao detectar borda com o método padrão do Raycast2D is_colliding()
-	if not floor_left.is_colliding():
-		direction = 1
-	if not floor_right.is_colliding():
-		direction = -1
-		# Aplica velocidade no eixo x
-	velocity.x = direction * SPEED
-	# Vira o sprite do personagem se estiver indo para a direita
-	anim.flip_h =  direction > 0
-	# Roda a animação de caminhar
-	anim.play("spin_walk")
+func _physics_process(delta):
+	# Aplicando gravidade:
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
 		
-		# Move o inimigo
+	# Lógica de movimentação e detecção de bordas/paredes:
+	if is_on_floor():
+		var should_turn = false
+		
+		# Verifica borda à frente
+		if direction == 1 and not floor_right.is_colliding():
+			should_turn = true
+		elif direction == -1 and not floor_left.is_colliding():
+			should_turn = true
+			
+		# Verifica parede à frente
+		if is_on_wall():
+			should_turn = true
+			
+		if should_turn:
+			direction *= -1
+	
+	# Aplica velocidade
+	velocity.x = direction * speed
+	
+	# Visual e animação
+	anim.flip_h = direction > 0
+	anim.play("spin_walk")
+	
+	# Move_and_slide lida com a física e colisões
 	move_and_slide()
+	
+	# ESCAPE DE SEGURANÇA: Se estiver travado no chão com velocidade zero, sobe um pouco
+	if is_on_floor() and abs(velocity.x) < 1.0:
+		position.y -= 1.0

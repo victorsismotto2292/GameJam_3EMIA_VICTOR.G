@@ -19,25 +19,28 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 53.037724
+radius = 24.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1506588155]
 collision_layer = 2
+collision_mask = 1
 floor_constant_speed = true
-floor_snap_length = 8.0
+floor_snap_length = 12.0
 script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=864124750]
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"spin_walk"
 autoplay = "spin_walk"
-frame_progress = 0.8199954
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492632296]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="FloorRight" type="RayCast2D" parent="." unique_id=624750185]
-target_position = Vector2(25, 20)
+position = Vector2(20, 0)
+target_position = Vector2(0, 45)
 
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
-target_position = Vector2(-25, 20)
+position = Vector2(-20, 0)
+target_position = Vector2(0, 45)
