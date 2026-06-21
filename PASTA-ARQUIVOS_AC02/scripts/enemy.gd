@@ -1,45 +1,27 @@
-# CÓDIGO RETIRADO DAS APOSTILAS DE INIMIGO E KILLZONE E REFORMULADO COM BASE NO ESTILO DO JOGO
-
 extends CharacterBody2D
 
-# CONSTANTES
-const speed = 60.0 # Velocidade levemente reduzida para patrulha mais estável
-const gravity = 980.0
+const SPEED = 120.0
+const GRAVITY = 800.0
 
-# VARIÁVEIS
-var direction = -1 # Começa indo para a esquerda (padrão comum)
+var direction = 1
 
-# VARIÁVEIS REFERENCIAIS
-@onready var floor_left: RayCast2D = $FloorLeft 
-@onready var floor_right: RayCast2D = $FloorRight 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-
-# FUNÇÕES
+@onready var floor_left = $FloorLeft # mesmo nome do nó
+@onready var floor_right = $FloorRight
+@onready var anim = $AnimatedSprite2D
 
 func _physics_process(delta):
-	# Aplicando gravidade
+	# Física para o inimigo detectar o chão
 	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		velocity.y = 0
+		velocity.y += GRAVITY * delta
 		
-	# Lógica de patrulha: vira ao chegar na borda ou bater na parede
-	# Importante: verificamos a colisão do RayCast oposto à direção para saber se deve virar
-	if is_on_floor():
-		if direction == 1:
-			if not floor_right.is_colliding() or is_on_wall():
-				direction = -1
-		else:
-			if not floor_left.is_colliding() or is_on_wall():
-				direction = 1
+		# Inverter ao detectar borda com o mesmo padrão
+		if not floor_left.is_colliding():
+			direction = 1
+		if not floor_right.is_colliding():
+			direction = -1
+		# Aplicando velocidade no eixo x:
+		velocity.x = direction * SPEED
+		anim.flip_h = direction > 0
+	anim.play("walk")
 	
-	# Aplica velocidade horizontal
-	velocity.x = direction * speed
-	
-	# Visual e animação
-	# Ajuste do flip: Kenney spinner geralmente olha para frente
-	anim.flip_h = direction > 0
-	anim.play("spin_walk")
-	
-	# Movimentação física
 	move_and_slide()
