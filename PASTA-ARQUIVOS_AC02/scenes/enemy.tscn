@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpc57cosvtbs2" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://c7gi408p1h8t6" path="res://assets/Kenney-Platformer-art-deluxe/Extra animations and enemies/Enemy sprites/spinner.png" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://bwsv857m5d8kr" path="res://assets/Kenney-Platformer-art-deluxe/Extra animations and enemies/Enemy sprites/spinner_spin.png" id="2_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://by00alco4kxeo" path="res://scenes/killzone.tscn" id="4_5uy6h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -21,6 +22,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_enemy"]
 radius = 32.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 32.0
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1506588155]
 collision_layer = 2
 floor_constant_speed = true
@@ -31,7 +35,7 @@ script = ExtResource("1_4ra3w")
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk"
 autoplay = "walk"
-frame_progress = 0.9480161
+frame_progress = 0.62976724
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492632296]
 shape = SubResource("CircleShape2D_enemy")
@@ -43,3 +47,8 @@ target_position = Vector2(0, 40)
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
 position = Vector2(-30, 0)
 target_position = Vector2(0, 40)
+
+[node name="Killzone" parent="." unique_id=559587657 instance=ExtResource("4_5uy6h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1811194571]
+shape = SubResource("CircleShape2D_g4v7s")

@@ -63,3 +63,6 @@ func update_animations(direction: float, current_speed: float) -> void:
 			animated_sprite_2d.play("walk")
 	else:
 		animated_sprite_2d.play("jump")
+		
+func die(): # Fazer o player morrer e voltar ao ponto inicial
+	get_tree().reload_current_scene()
