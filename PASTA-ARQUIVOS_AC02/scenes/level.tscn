@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://w5g36vajl7cn" path="res://scenes/enemy.tscn" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://bifdhr2ex5cc3" path="res://scenes/plataforma_móvel.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://by00alco4kxeo" path="res://scenes/killzone.tscn" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://duk613r0x0mpf" path="res://scenes/Plataforma normal.tscn" id="8_b121j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -7235,44 +7236,6 @@ texture_region_size = Vector2i(70, 70)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_2r41h")
 
-[sub_resource type="Animation" id="Animation_ppgk2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1451, -5)]
-}
-
-[sub_resource type="Animation" id="Animation_2r41h"]
-resource_name = "move1"
-length = 0.7
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1451, -5), Vector2(1546, -5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_klq6b"]
-_data = {
-&"RESET": SubResource("Animation_ppgk2"),
-&"move1": SubResource("Animation_2r41h")
-}
-
 [sub_resource type="Animation" id="Animation_klq6b"]
 length = 0.001
 tracks/0/type = "value"
@@ -7311,6 +7274,44 @@ _data = {
 &"move2": SubResource("Animation_b121j")
 }
 
+[sub_resource type="Animation" id="Animation_ppgk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1451, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_2r41h"]
+resource_name = "move1"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1451, -5), Vector2(1546, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klq6b"]
+_data = {
+&"RESET": SubResource("Animation_ppgk2"),
+&"move1": SubResource("Animation_2r41h")
+}
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5fn"]
 distance = -9.0
 
@@ -7323,6 +7324,10 @@ position = Vector2(-2994, -3)
 [node name="Enemy" parent="." unique_id=1506588155 instance=ExtResource("5_2r41h")]
 z_index = 1
 position = Vector2(-1656, -111)
+
+[node name="Enemy2" parent="." unique_id=557115901 instance=ExtResource("5_2r41h")]
+z_index = 1
+position = Vector2(-1655, 29)
 
 [node name="Tilemap" type="Node2D" parent="." unique_id=322709704]
 
@@ -7341,22 +7346,35 @@ z_index = -1
 tile_map_data = PackedByteArray("AAB0/wIAAAAAAAsAAGD8/wIAAAAEAAMAAABw//7/AAAAAAsAAABw/wIAAAAAAAsAAAC+//7/AAAAAAsAAAC+/wIAAAAAAAsAAADN/wIAAAAAAAsAAADR/wIAAAAAAAsAAGCNAQIAAAAEAAUAAABNAQIAAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_klq6b")
 
-[node name="Plataforma" parent="." unique_id=2116727331 instance=ExtResource("5_ppgk2")]
-position = Vector2(1451, -5)
+[node name="Plataformas móveis" type="Node2D" parent="." unique_id=1921585587]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma" unique_id=1930295286]
-libraries/ = SubResource("AnimationLibrary_klq6b")
-autoplay = &"move1"
-
-[node name="Plataforma2" parent="." unique_id=1285188424 instance=ExtResource("5_ppgk2")]
+[node name="Plataforma2" parent="Plataformas móveis" unique_id=1285188424 instance=ExtResource("5_ppgk2")]
 position = Vector2(2229, -7)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataforma2" unique_id=838633953]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas móveis/Plataforma2" unique_id=838633953]
 libraries/ = SubResource("AnimationLibrary_8c41q")
 autoplay = &"move2"
+
+[node name="Plataforma" parent="Plataformas móveis" unique_id=2116727331 instance=ExtResource("5_ppgk2")]
+position = Vector2(1451, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plataformas móveis/Plataforma" unique_id=1930295286]
+libraries/ = SubResource("AnimationLibrary_klq6b")
+autoplay = &"move1"
 
 [node name="Killzone" parent="." unique_id=559587657 instance=ExtResource("7_klq6b")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=266450922]
 position = Vector2(2042, 330)
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[node name="Plataformas estáticas" type="Node2D" parent="." unique_id=1245998626]
+
+[node name="PlataformaNormal" parent="Plataformas estáticas" unique_id=2088608358 instance=ExtResource("8_b121j")]
+position = Vector2(-1652, -34)
+
+[node name="PlataformaNormal2" parent="Plataformas estáticas" unique_id=1358871376 instance=ExtResource("8_b121j")]
+position = Vector2(-1442, -34)
+
+[node name="PlataformaNormal3" parent="Plataformas estáticas" unique_id=1794697280 instance=ExtResource("8_b121j")]
+position = Vector2(-1862, -34)
