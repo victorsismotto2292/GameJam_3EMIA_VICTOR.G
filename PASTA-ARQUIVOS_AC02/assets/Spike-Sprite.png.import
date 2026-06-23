@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhc5ys7wpmmsm"
-path="res://.godot/imported/16-bit-spike-Sheet_one_spike-removebg-preview.png-e7ba564163c63e2199d51ce15a236b7c.ctex"
+uid="uid://jytfrakrg4ka"
+path="res://.godot/imported/Spike-Sprite.png-b033692e9ac43f7255a84e667ab65dc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/16-bit-spike-Sheet_one_spike-removebg-preview.png"
-dest_files=["res://.godot/imported/16-bit-spike-Sheet_one_spike-removebg-preview.png-e7ba564163c63e2199d51ce15a236b7c.ctex"]
+source_file="res://assets/Spike-Sprite.png"
+dest_files=["res://.godot/imported/Spike-Sprite.png-b033692e9ac43f7255a84e667ab65dc8.ctex"]
 
 [params]
 
