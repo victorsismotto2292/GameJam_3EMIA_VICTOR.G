@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 360.0
+const SPEED = 300.0
 const GRAVITY = 800.0
 
 var direction = 1
