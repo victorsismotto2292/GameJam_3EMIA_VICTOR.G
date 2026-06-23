@@ -9,8 +9,13 @@ const MAX_JUMPS = 2 # Para pulo-duplo
 
 var current_jumps = 0
 var is_dead = false
+var start_position: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	start_position = global_position
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -65,4 +70,15 @@ func update_animations(direction: float, current_speed: float) -> void:
 		animated_sprite_2d.play("jump")
 		
 func die(): # Fazer o player morrer e voltar ao ponto inicial
-	get_tree().reload_current_scene()
+	if is_dead:
+		return
+	is_dead = true
+	# Resetar a posição ao ponto inicial (similar ao Chronos)
+	# Isso evita o "freeze" causado por reload de cena com colisão ativa
+	call_deferred("_reset_position")
+
+func _reset_position() -> void:
+	global_position = start_position
+	velocity = Vector2.ZERO
+	is_dead = false
+	current_jumps = 0
