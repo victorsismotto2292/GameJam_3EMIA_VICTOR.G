@@ -38,22 +38,15 @@ autoplay = "walk"
 frame_progress = 0.9226459
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492632296]
-visible = false
 shape = SubResource("CircleShape2D_enemy")
 
 [node name="FloorRight" type="RayCast2D" parent="." unique_id=624750185]
 position = Vector2(30, 0)
 target_position = Vector2(0, 40)
-enabled = true
-collide_with_areas = false
-collide_with_bodies = true
 
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=141547845]
 position = Vector2(-30, 0)
 target_position = Vector2(0, 40)
-enabled = true
-collide_with_areas = false
-collide_with_bodies = true
 
 [node name="Killzone" parent="." unique_id=559587657 instance=ExtResource("4_5uy6h")]
 

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const GRAVITY = 800.0
 
 var direction = 1
 var gravity_real: float = ProjectSettings.get_setting("physics/2d/default_gravity")
