@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cyus2y2mpd1ke"]
+
+[ext_resource type="Script" uid="uid://bhmwieodcspfe" path="res://scripts/door.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://ctryd1tmxsj7j" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/door_closedMid.png" id="2_texture"]
+[ext_resource type="Texture2D" uid="uid://boeby0dxgpuaa" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/Tiles/door_closedTop.png" id="3_83dcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(70, 110)
+
+[node name="Door" type="Area2D" unique_id=1973786632]
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=600917023]
+texture = ExtResource("2_texture")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1048973995]
+position = Vector2(0, -70)
+texture = ExtResource("3_83dcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=580532631]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_door")

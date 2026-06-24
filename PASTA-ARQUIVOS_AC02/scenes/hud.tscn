@@ -40,5 +40,18 @@ offset_left = 865.0
 offset_top = 2.0
 offset_right = -45.0
 offset_bottom = -469.976
-text = "Pontos:"
+	text = "Pontos:"
+	label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="ChaveLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.91200006
+offset_left = 400.0
+offset_top = 2.0
+offset_right = -400.0
+offset_bottom = -469.976
+text = "Chave: Não"
 label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1

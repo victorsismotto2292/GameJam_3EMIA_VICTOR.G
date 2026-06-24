@@ -5,6 +5,7 @@ var vida: int = vida_inicial # apenas uma vida, adicionará mais uma dependendo 
 # boost de escudo ou de vida bônus
 
 var pontos: int = 0 # variável dos pontos para contabilizar a cada moeda
+var tem_chave: bool = false # indica se o jogador pegou a chave
 
 func adicionar_ponto():
 	pontos += 1
