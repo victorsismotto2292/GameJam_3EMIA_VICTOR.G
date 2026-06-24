@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xlyychw3uus7" path="res://scripts/coin.gd" id="1_11l1o"]
 [ext_resource type="Texture2D" uid="uid://eo4xxkewb5no" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/HUD/hud_coins.png" id="2_d14el"]
-[ext_resource type="Texture2D" uid="uid://70j0kcgnnk3g" path="res://assets/Kenney-Particle-Pack/PNG (Black background)/circle_05.png" id="3_1ikuy"]
+[ext_resource type="Texture2D" uid="uid://lgev1n8vdojw" path="res://assets/Kenney-Particle-Pack/PNG (Transparent)/circle_05_32x32.png" id="3_11l1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 24.020824
@@ -27,9 +27,9 @@ texture = ExtResource("2_d14el")
 shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Particles" type="GPUParticles2D" parent="." unique_id=170744746]
-scale = Vector2(0.21457349, 0.19584167)
+scale = Vector2(-1.0165887, 0.74338573)
 emitting = false
-texture = ExtResource("3_1ikuy")
+texture = ExtResource("3_11l1o")
 lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
