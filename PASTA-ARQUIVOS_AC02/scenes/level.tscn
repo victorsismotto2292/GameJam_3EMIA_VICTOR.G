@@ -7384,3 +7384,9 @@ position = Vector2(-1862, -34)
 
 [node name="Spikes" parent="SpikeGroup" unique_id=456240185 instance=ExtResource("9_olg7q")]
 position = Vector2(-957, 49)
+
+[node name="Spikes2" parent="SpikeGroup" unique_id=1417220584 instance=ExtResource("9_olg7q")]
+position = Vector2(-898, 49)
+
+[node name="Spikes3" parent="SpikeGroup" unique_id=1354424227 instance=ExtResource("9_olg7q")]
+position = Vector2(-839, 49)
