@@ -11,6 +11,8 @@ outline_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_racf3"]
 
+[sub_resource type="FontVariation" id="FontVariation_wqhvx"]
+
 [node name="GameOver" type="Control" unique_id=455224381]
 layout_mode = 3
 anchors_preset = 15
@@ -54,4 +56,19 @@ theme_override_fonts/font = SubResource("FontVariation_racf3")
 theme_override_font_sizes/font_size = 24
 text = "Tentar Novamente"
 
+[node name="MenuPrincipalButton" type="Button" parent="." unique_id=1147010989]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 354.0
+offset_right = 715.0
+offset_bottom = 419.0
+theme_override_colors/icon_normal_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_focus_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0, 0.07058824, 1)
+theme_override_colors/icon_hover_color = Color(0.6862745, 0.06666667, 0.56078434, 1)
+theme_override_fonts/font = SubResource("FontVariation_wqhvx")
+theme_override_font_sizes/font_size = 24
+text = "Menu Principal"
+
 [connection signal="pressed" from="TentarNovamenteButton" to="." method="_on_tentar_novamente_button_pressed"]
+[connection signal="pressed" from="MenuPrincipalButton" to="." method="_on_menu_principal_button_pressed"]

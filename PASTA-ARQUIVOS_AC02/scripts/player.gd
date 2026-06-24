@@ -12,7 +12,7 @@ var is_dead = false
 var start_position: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hud: CanvasLayer	= $"../hud" # VARIÁVEL DE REFERÊNCIA AO HUD
+@onready var hud: CanvasLayer	= $"../Hud" # VARIÁVEL DE REFERÊNCIA AO HUD
 
 func _ready() -> void:
 	start_position = global_position
@@ -74,10 +74,14 @@ func die(): # Fazer o player morrer e voltar ao ponto inicial
 	if is_dead:
 		return
 	is_dead = true
-	# Resetar a posição ao ponto inicial (similar ao Chronos)
-	# Isso evita o "freeze" causado por reload de cena com colisão ativa
-	call_deferred("_reset_position")
 	tomar_dano(1)
+
+	# Se ainda há vidas, reseta a posição (similar ao Chronos).
+	# Se a vida chegou a 0, tomar_dano() já disparou o Game Over,
+	# então não há motivo para reposicionar o player.
+	if GameManager.vida > 0:
+		# Isso evita o "freeze" causado por reload de cena com colisão ativa
+		call_deferred("_reset_position")
 
 func _reset_position() -> void:
 	global_position = start_position
@@ -87,6 +91,9 @@ func _reset_position() -> void:
 	
 func tomar_dano(dano:int) -> void:
 	GameManager.vida -= dano
-	if GameManager.vida <= 0:
-		print ("Teste")
 	hud.atualizar_vidas()
+	if GameManager.vida <= 0:
+		game_over()
+
+func game_over() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
