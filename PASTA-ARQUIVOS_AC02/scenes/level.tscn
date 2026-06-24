@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://by00alco4kxeo" path="res://scenes/killzone.tscn" id="7_klq6b"]
 [ext_resource type="PackedScene" uid="uid://duk613r0x0mpf" path="res://scenes/Plataforma normal.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://dyl1bxwqxr27k" path="res://scenes/spikes.tscn" id="9_olg7q"]
+[ext_resource type="PackedScene" uid="uid://beq3kykkdt3tq" path="res://scenes/pause_menu.tscn" id="10_olg7q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -7497,3 +7498,5 @@ rotation = 1.5707964
 
 [node name="Spikes3" parent="SpikeGroup" unique_id=1354424227 instance=ExtResource("9_olg7q")]
 position = Vector2(-839, 49)
+
+[node name="PauseMenu" parent="." unique_id=1369982233 instance=ExtResource("10_olg7q")]

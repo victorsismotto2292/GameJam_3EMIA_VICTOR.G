@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://beq3kykkdt3tq"]
+
+[ext_resource type="Script" uid="uid://btns2rl3lullm" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_myx47"]
+font_size = 64
+font_color = Color(0.88613474, 0.7723618, 0.99085444, 1)
+outline_size = 5
+outline_color = Color(0.23306316, 0.24579087, 0.87949365, 1)
+shadow_size = 10
+
+[sub_resource type="FontVariation" id="FontVariation_7numd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kukqi"]
+font = SubResource("FontVariation_7numd")
+font_size = 32
+outline_size = 2
+outline_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_5d2l8"]
+
+[node name="PauseMenu" type="Control" unique_id=1369982233]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1306097335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 1, 0.21568628)
+
+[node name="TituloJogoLabel" type="Label" parent="." unique_id=131875694]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 77.0
+offset_right = 731.0
+offset_bottom = 165.0
+text = "CHRONOS"
+label_settings = SubResource("LabelSettings_myx47")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriçãoLabel" type="Label" parent="." unique_id=118209098]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 222.0
+offset_right = 824.0
+offset_bottom = 267.0
+text = "Jogo pausado"
+label_settings = SubResource("LabelSettings_kukqi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinuarButton" type="Button" parent="." unique_id=1085491124]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 332.0
+offset_right = 689.0
+offset_bottom = 397.0
+theme_override_colors/icon_normal_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_focus_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0, 0.07058824, 1)
+theme_override_colors/icon_hover_color = Color(0.6862745, 0.06666667, 0.56078434, 1)
+theme_override_fonts/font = SubResource("FontVariation_5d2l8")
+theme_override_font_sizes/font_size = 24
+text = "Continuar"
+
+[node name="MenuPrincipalButton" type="Button" parent="." unique_id=85188663]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 451.0
+offset_right = 689.0
+offset_bottom = 516.0
+theme_override_colors/icon_normal_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_focus_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0, 0.07058824, 1)
+theme_override_colors/icon_hover_color = Color(0.6862745, 0.06666667, 0.56078434, 1)
+theme_override_fonts/font = SubResource("FontVariation_5d2l8")
+theme_override_font_sizes/font_size = 24
+text = "Menu Principal"
+
+[connection signal="pressed" from="ContinuarButton" to="." method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="MenuPrincipalButton" to="." method="_on_menu_principal_button_pressed"]

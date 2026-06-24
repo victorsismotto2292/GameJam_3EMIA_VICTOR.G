@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bry4cdtueic1m"]
+
+[ext_resource type="Script" uid="uid://b7088sknkpokm" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://o77anj5eukrl" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/bg.png" id="2_tbwuq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+outline_size = 10
+outline_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_racf3"]
+
+[node name="GameOver" type="Control" unique_id=455224381]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="GameOverBackground" type="TextureRect" parent="." unique_id=1549973059]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tbwuq")
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=635619901]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 169.0
+offset_right = 768.0
+offset_bottom = 257.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TentarNovamenteButton" type="Button" parent="." unique_id=1341788662]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 460.0
+offset_right = 715.0
+offset_bottom = 525.0
+theme_override_colors/icon_normal_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_focus_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0, 0.07058824, 1)
+theme_override_colors/icon_hover_color = Color(0.6862745, 0.06666667, 0.56078434, 1)
+theme_override_fonts/font = SubResource("FontVariation_racf3")
+theme_override_font_sizes/font_size = 24
+text = "Tentar Novamente"
+
+[connection signal="pressed" from="TentarNovamenteButton" to="." method="_on_tentar_novamente_button_pressed"]
