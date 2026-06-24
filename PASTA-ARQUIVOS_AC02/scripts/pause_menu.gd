@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 
 # menu escondido
 func _ready() -> void:
 	hide()
-	
+
 # função para abrir ou fechar o menu
 func _input(event) -> void:
 	if event.is_action_pressed("pause"):
@@ -13,12 +13,12 @@ func _input(event) -> void:
 		else:
 			show()
 			get_tree().paused = true
-			
+
 # função do botão continuar
 func _on_continuar_button_pressed() -> void:
 	hide()
 	get_tree().paused = false
-	
+
 # função para abrir o menu inicial
 func _on_menu_principal_button_pressed() -> void:
 	get_tree().paused = false
