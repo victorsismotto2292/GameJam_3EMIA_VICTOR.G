@@ -4682,6 +4682,7 @@ texture_region_size = Vector2i(70, 70)
 4:6/0 = 0
 5:6/0 = 0
 6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-34.892593, -34.982525, 35.07245, -34.982525, 34.892593, 35.162376, -34.892593, 34.802666)
 7:6/0 = 0
 9:6/0 = 0
 10:6/0 = 0
@@ -7344,7 +7345,7 @@ tile_set = SubResource("TileSet_ppgk2")
 
 [node name="Decoração" type="TileMapLayer" parent="Tilemap" unique_id=843831081]
 z_index = -1
-tile_map_data = PackedByteArray("AAB0/wIAAAAAAAsAAGD8/wIAAAAEAAMAAABw//7/AAAAAAsAAABw/wIAAAAAAAsAAAC+//7/AAAAAAsAAAC+/wIAAAAAAAsAAADN/wIAAAAAAAsAAADR/wIAAAAAAAsAAGCNAQIAAAAEAAUAAABNAQIAAAAEAAMAAAA=")
+tile_map_data = PackedByteArray("AAB0/wIAAAAAAAsAAGD8/wIAAAAEAAMAAABw//7/AAAAAAsAAABw/wIAAAAAAAsAAAC+//7/AAAAAAsAAAC+/wIAAAAAAAsAAADN/wIAAAAAAAsAAADR/wIAAAAAAAsAAGCNAQIAAAAEAAUAAABNAQIAAAAEAAMAAAA/AAIAAAAEAAMAAABTAAEAAAAGAAYAAAA=")
 tile_set = SubResource("TileSet_klq6b")
 
 [node name="Plataformas móveis" type="Node2D" parent="." unique_id=1921585587]
@@ -7387,6 +7388,29 @@ position = Vector2(-957, 49)
 
 [node name="Spikes2" parent="SpikeGroup" unique_id=1417220584 instance=ExtResource("9_olg7q")]
 position = Vector2(-898, 49)
+
+[node name="Spikes4" parent="SpikeGroup" unique_id=95241154 instance=ExtResource("9_olg7q")]
+position = Vector2(-653, 49)
+
+[node name="Spikes5" parent="SpikeGroup" unique_id=1581498376 instance=ExtResource("9_olg7q")]
+position = Vector2(-601, 49)
+
+[node name="Spikes6" parent="SpikeGroup" unique_id=1806635294 instance=ExtResource("9_olg7q")]
+position = Vector2(377, 49)
+
+[node name="Spikes7" parent="SpikeGroup" unique_id=264353198 instance=ExtResource("9_olg7q")]
+position = Vector2(500, 49)
+
+[node name="Spikes8" parent="SpikeGroup" unique_id=195238459 instance=ExtResource("9_olg7q")]
+position = Vector2(665, 49)
+
+[node name="Spikes9" parent="SpikeGroup" unique_id=821139637 instance=ExtResource("9_olg7q")]
+position = Vector2(458, -76)
+rotation = 1.5707964
+
+[node name="Spikes11" parent="SpikeGroup" unique_id=528677023 instance=ExtResource("9_olg7q")]
+position = Vector2(458, -76)
+rotation = 1.5707964
 
 [node name="Spikes3" parent="SpikeGroup" unique_id=1354424227 instance=ExtResource("9_olg7q")]
 position = Vector2(-839, 49)
