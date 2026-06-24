@@ -17,4 +17,4 @@ func atualizar_vidas() -> void:
 	
 # função atualizar_pontuação:
 func atualizar_pontuação() -> void:
-	pontos_label.text = "Pontos " + str(GameManager.pontos)
+	pontos_label.text = "Pontos: " + str(GameManager.pontos)
