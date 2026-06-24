@@ -76,7 +76,7 @@ func die(): # Fazer o player morrer e voltar ao ponto inicial
 	is_dead = true
 	tomar_dano(1)
 
-	# Se ainda há vidas, reseta a posição (similar ao Chronos).
+	# Se ainda há vidas, reseta a posição.
 	# Se a vida chegou a 0, tomar_dano() já disparou o Game Over,
 	# então não há motivo para reposicionar o player.
 	if GameManager.vida > 0:

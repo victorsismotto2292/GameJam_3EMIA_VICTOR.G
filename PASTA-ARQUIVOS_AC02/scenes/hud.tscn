@@ -30,3 +30,15 @@ offset_bottom = -471.976
 text = "Vidas: "
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 1
+
+[node name="PontosLabel" type="Label" parent="Control" unique_id=872748620]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.91200006
+offset_left = 914.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = -469.976
+text = "Pontos:"
+label_settings = SubResource("LabelSettings_g4v7s")
