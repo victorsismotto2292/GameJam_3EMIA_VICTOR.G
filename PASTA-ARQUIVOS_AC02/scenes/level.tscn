@@ -49,7 +49,7 @@ texture_region_size = Vector2i(80, 80)
 34:0/0 = 0
 1:1/0 = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19.6046, -19.244883, 19.964317, -18.885166, 21.40319, 19.78446, -21.043472, 18.165731)
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40.108498, -40.01857, 40.288353, -40.558144, 39.928642, 40.018562, -39.92864, 40.018562)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40.11963, -40.11963, 40.11963, -40.11963, 40.11963, 39.65312, -40.11963, 40.586132)
 4:1/0 = 0
@@ -1505,7 +1505,7 @@ texture_region_size = Vector2i(70, 70)
 6:5/0 = 0
 7:5/0 = 0
 9:5/0 = 0
-9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-19.065025, -4.6763268, 19.604603, -5.5756197, 19.424744, 18.705309, -20.683754, 18.885168)
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.88517, -2.7878113, -10.2519455, -4.9461136, 0.71943665, -5.485695, 12.230392, -5.1259766, 20.324036, -2.2482376, 29.137115, 4.226677, 32.55443, 11.241165, 34.892593, 15.198059, 35.07245, 23.65142, 34.892593, 35.701958, -34.892593, 34.98252, -34.892593, 15.018204, -31.834995, 7.8238525, -26.259377, 2.428093)
 10:5/0 = 0
 11:5/0 = 0
 12:5/0 = 0
@@ -1557,7 +1557,7 @@ texture_region_size = Vector2i(70, 70)
 6:6/0 = 0
 7:6/0 = 0
 9:6/0 = 0
-9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.403189, -19.244883, 19.964317, -18.525448, 20.503895, 19.244886, -21.043472, 19.065027)
+9:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24.640648, -34.982525, 25.000359, -34.982525, 25.000359, 35.34224, -25.000366, 35.162376)
 10:6/0 = 0
 11:6/0 = 0
 12:6/0 = 0
@@ -7349,7 +7349,7 @@ tile_set = SubResource("TileSet_ppgk2")
 
 [node name="Decoração" type="TileMapLayer" parent="Tilemap" unique_id=843831081]
 z_index = -1
-tile_map_data = PackedByteArray("AAB0/wIAAAAAAAsAAGBw//7/AAAAAAsAAABw/wIAAAAAAAsAAAC+//7/AAAAAAsAAAC+/wIAAAAAAAsAAADN/wIAAAAAAAsAAADR/wIAAAAAAAsAAGCNAQIAAAAEAAUAAAA/AAIAAAAEAAMAAABTAAEAAAAGAAYAAADx/wIAAAAEAAMAAABdAQIAAAAEAAMAAAA=")
+tile_map_data = PackedByteArray("AAB0/wIAAAAAAAsAAGBw//7/AAAAAAsAAABw/wIAAAAAAAsAAAC+//7/AAAAAAsAAAC+/wIAAAAAAAsAAADN/wIAAAAAAAsAAADR/wIAAAAAAAsAAGCNAQIAAAAEAAUAAAA/AAIAAAAEAAMAAABTAAEAAAAGAAYAAADx/wIAAAAEAAMAAABdAQIAAAAEAAMAAACpAAEAAAAGAAYAAAC4AAEAAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_klq6b")
 
 [node name="Plataformas móveis" type="Node2D" parent="." unique_id=1921585587]
@@ -7510,6 +7510,112 @@ position = Vector2(-839, 49)
 [node name="GameManager" type="Node2D" parent="." unique_id=1626170359]
 script = ExtResource("12_8iemx")
 
-[node name="Coin" parent="." unique_id=2001272975 instance=ExtResource("13_64w2a")]
-position = Vector2(-2300, -98)
+[node name="CoinGroup" type="Node2D" parent="." unique_id=5425629]
+
+[node name="Coin" parent="CoinGroup" unique_id=2001272975 instance=ExtResource("13_64w2a")]
+position = Vector2(-2300, -85)
+rotation = 2.3937454
+
+[node name="Coin2" parent="CoinGroup" unique_id=555075944 instance=ExtResource("13_64w2a")]
+position = Vector2(-1939, 28)
+rotation = 2.3937454
+
+[node name="Coin23" parent="CoinGroup" unique_id=570989002 instance=ExtResource("13_64w2a")]
+position = Vector2(-1934, -94.99988)
+rotation = 2.3937454
+
+[node name="Coin24" parent="CoinGroup" unique_id=1605191097 instance=ExtResource("13_64w2a")]
+position = Vector2(-1808, -95)
+rotation = 2.3937454
+
+[node name="Coin25" parent="CoinGroup" unique_id=700652902 instance=ExtResource("13_64w2a")]
+position = Vector2(-1654, -95)
+rotation = 2.3937454
+
+[node name="Coin26" parent="CoinGroup" unique_id=1021348619 instance=ExtResource("13_64w2a")]
+position = Vector2(-1510, -94)
+rotation = 2.3937454
+
+[node name="Coin27" parent="CoinGroup" unique_id=1532622916 instance=ExtResource("13_64w2a")]
+position = Vector2(-1351, -94.99988)
+rotation = 2.3937454
+
+[node name="Coin3" parent="CoinGroup" unique_id=499814296 instance=ExtResource("13_64w2a")]
+position = Vector2(-1801, 29)
+rotation = 2.3937454
+
+[node name="Coin4" parent="CoinGroup" unique_id=1218399622 instance=ExtResource("13_64w2a")]
+position = Vector2(-1652, 35)
+rotation = 2.3937454
+
+[node name="Coin5" parent="CoinGroup" unique_id=1220905355 instance=ExtResource("13_64w2a")]
+position = Vector2(-1508, 33)
+rotation = 2.3937454
+
+[node name="Coin6" parent="CoinGroup" unique_id=2045413540 instance=ExtResource("13_64w2a")]
+position = Vector2(-1346, 36)
+rotation = 2.3937454
+
+[node name="Coin7" parent="CoinGroup" unique_id=790093124 instance=ExtResource("13_64w2a")]
+position = Vector2(-1046, -85)
+rotation = 2.3937454
+
+[node name="Coin8" parent="CoinGroup" unique_id=1868899185 instance=ExtResource("13_64w2a")]
+position = Vector2(-777, -20)
+rotation = 2.3937454
+
+[node name="Coin9" parent="CoinGroup" unique_id=461255235 instance=ExtResource("13_64w2a")]
+position = Vector2(339, -89)
+rotation = 2.3937454
+
+[node name="Coin10" parent="CoinGroup" unique_id=1435520489 instance=ExtResource("13_64w2a")]
+position = Vector2(629, -103)
+rotation = 2.3937454
+
+[node name="Coin11" parent="CoinGroup" unique_id=350659529 instance=ExtResource("13_64w2a")]
+position = Vector2(1522, -69)
+rotation = 2.3937454
+
+[node name="Coin12" parent="CoinGroup" unique_id=2061819220 instance=ExtResource("13_64w2a")]
+position = Vector2(1764, -203)
+rotation = 2.3937454
+
+[node name="Coin13" parent="CoinGroup" unique_id=1091863863 instance=ExtResource("13_64w2a")]
+position = Vector2(1845, -119)
+rotation = 2.3937454
+
+[node name="Coin14" parent="CoinGroup" unique_id=906026034 instance=ExtResource("13_64w2a")]
+position = Vector2(1922, -208)
+rotation = 2.3937454
+
+[node name="Coin15" parent="CoinGroup" unique_id=1521221355 instance=ExtResource("13_64w2a")]
+position = Vector2(1994, -123)
+rotation = 2.3937454
+
+[node name="Coin16" parent="CoinGroup" unique_id=844407666 instance=ExtResource("13_64w2a")]
+position = Vector2(2072, -210.00012)
+rotation = 2.3937454
+
+[node name="Coin17" parent="CoinGroup" unique_id=889025174 instance=ExtResource("13_64w2a")]
+position = Vector2(2295, -69.00012)
+rotation = 2.3937454
+
+[node name="Coin18" parent="CoinGroup" unique_id=1254864997 instance=ExtResource("13_64w2a")]
+position = Vector2(3420, -22)
+rotation = 2.3937454
+
+[node name="Coin19" parent="CoinGroup" unique_id=1302461013 instance=ExtResource("13_64w2a")]
+position = Vector2(3848, -86)
+rotation = 2.3937454
+
+[node name="Coin20" parent="CoinGroup" unique_id=418916465 instance=ExtResource("13_64w2a")]
+position = Vector2(4282, -149.99988)
+rotation = 2.3937454
+
+[node name="Coin21" parent="CoinGroup" unique_id=952385046 instance=ExtResource("13_64w2a")]
+position = Vector2(4712, -86.00012)
+rotation = 2.3937454
+
+[node name="Coin22" parent="CoinGroup" unique_id=1746098193 instance=ExtResource("13_64w2a")]
+position = Vector2(5143, -21.999878)
 rotation = 2.3937454
