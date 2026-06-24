@@ -22,4 +22,6 @@ func _on_continuar_button_pressed() -> void:
 # função para abrir o menu inicial
 func _on_menu_principal_button_pressed() -> void:
 	get_tree().paused = false
+	GameManager.vida = GameManager.vida_inicial # Reseta vida ao voltar ao menu
+	GameManager.resetar_pontos() # Reseta pontos ao voltar ao menu
 	get_tree().change_scene_to_file("res://scenes/menu_inicial.tscn")

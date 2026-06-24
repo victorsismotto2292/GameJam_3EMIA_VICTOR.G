@@ -13,3 +13,10 @@ func adicionar_ponto():
 	var hud = get_tree().current_scene.find_child("Hud", true, false)
 	if hud and hud.has_method("atualizar_pontuação"):
 		hud.atualizar_pontuação()
+
+func resetar_pontos():
+	pontos = 0
+	# Tenta encontrar o HUD para zerar visualmente se necessário
+	var hud = get_tree().current_scene.find_child("Hud", true, false)
+	if hud and hud.has_method("atualizar_pontuação"):
+		hud.atualizar_pontuação()

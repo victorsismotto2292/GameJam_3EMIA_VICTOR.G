@@ -88,6 +88,7 @@ func _reset_position() -> void:
 	velocity = Vector2.ZERO
 	is_dead = false
 	current_jumps = 0
+	GameManager.resetar_pontos() # Reseta a pontuação ao renascer
 	
 func tomar_dano(dano:int) -> void:
 	GameManager.vida -= dano
