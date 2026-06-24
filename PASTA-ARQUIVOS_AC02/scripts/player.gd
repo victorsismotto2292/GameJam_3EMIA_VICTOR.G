@@ -77,9 +77,16 @@ func die(): # Fazer o player morrer e voltar ao ponto inicial
 	# Resetar a posição ao ponto inicial (similar ao Chronos)
 	# Isso evita o "freeze" causado por reload de cena com colisão ativa
 	call_deferred("_reset_position")
+	tomar_dano(1)
 
 func _reset_position() -> void:
 	global_position = start_position
 	velocity = Vector2.ZERO
 	is_dead = false
 	current_jumps = 0
+	
+func tomar_dano(dano:int) -> void:
+	GameManager.vida -= dano
+	if GameManager.vida <= 0:
+		print ("Teste")
+	hud.atualizar_vidas()

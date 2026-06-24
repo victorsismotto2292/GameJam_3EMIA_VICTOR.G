@@ -7504,7 +7504,6 @@ position = Vector2(-839, 49)
 [node name="PauseMenu" parent="." unique_id=1369982233 instance=ExtResource("10_olg7q")]
 
 [node name="Hud" parent="." unique_id=1142441564 instance=ExtResource("11_t1rx8")]
-visible = false
 
 [node name="GameManager" type="Node2D" parent="." unique_id=1626170359]
 script = ExtResource("12_8iemx")

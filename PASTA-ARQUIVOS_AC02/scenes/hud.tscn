@@ -9,7 +9,7 @@ font = SubResource("FontVariation_yf5fn")
 font_size = 48
 font_color = Color(0, 0, 0, 1)
 
-[node name="Hud" type="CanvasLayer" unique_id=1142441564]
+[node name="HUD" type="CanvasLayer" unique_id=1142441564]
 script = ExtResource("1_ahhtf")
 
 [node name="Control" type="Control" parent="." unique_id=1793774937]
@@ -21,8 +21,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VidaLabel" type="Label" parent="Control" unique_id=229854052]
-layout_mode = 0
-offset_right = 242.0
-offset_bottom = 119.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.91200006
+offset_top = 1.0
+offset_right = -910.0
+offset_bottom = -470.976
 text = "Vidas: "
 label_settings = SubResource("LabelSettings_g4v7s")
