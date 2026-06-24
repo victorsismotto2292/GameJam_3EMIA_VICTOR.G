@@ -12,6 +12,7 @@ func _on_tentar_novamente_button_pressed() -> void:
 	# Reseta a vida e pontos antes de recarregar o nível
 	GameManager.vida = GameManager.vida_inicial
 	GameManager.resetar_pontos()
+	GameManager.tem_chave = false
 	get_tree().change_scene_to_file("res://scenes/level.tscn")
 
 
