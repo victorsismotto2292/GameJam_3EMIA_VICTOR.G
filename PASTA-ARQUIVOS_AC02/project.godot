@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="AC02_GAMES_2TRI"
-run/main_scene="uid://db7gsg6wdkycf"
+run/main_scene="uid://dq1lgwsoqxo5i"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

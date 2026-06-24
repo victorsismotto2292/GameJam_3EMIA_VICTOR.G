@@ -1,5 +1,26 @@
 [gd_scene format=3 uid="uid://dq1lgwsoqxo5i"]
 
+[ext_resource type="Script" uid="uid://bo11xfpkph1k" path="res://scripts/menu_inicial.gd" id="1_jhs6u"]
+[ext_resource type="Texture2D" uid="uid://o77anj5eukrl" path="res://assets/Kenney-Platformer-art-deluxe/Base pack/bg.png" id="1_p0uqc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font_size = 64
+font_color = Color(0.37503526, 0.0590252, 0.5537282, 1)
+outline_size = 5
+outline_color = Color(0.23306316, 0.24579087, 0.87949365, 1)
+shadow_size = 10
+
+[sub_resource type="FontVariation" id="FontVariation_p1u0y"]
+
+[sub_resource type="FontVariation" id="FontVariation_7numd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcnqv"]
+font = SubResource("FontVariation_7numd")
+font_size = 32
+font_color = Color(0.3285293, 0.44300827, 0.9732886, 1)
+outline_size = 2
+outline_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+
 [node name="MenuInicial" type="Control" unique_id=684599483]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +28,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jhs6u")
+
+[node name="GameBackGround" type="TextureRect" parent="." unique_id=195628886]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p0uqc")
+
+[node name="TituloJogoLabel" type="Label" parent="." unique_id=1303429678]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 77.0
+offset_right = 752.0
+offset_bottom = 165.0
+text = "CHRONOS"
+label_settings = SubResource("LabelSettings_yf5fn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JogarButton" type="Button" parent="." unique_id=2084571946]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 460.0
+offset_right = 677.0
+offset_bottom = 525.0
+theme_override_colors/icon_normal_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_focus_color = Color(0.3764706, 0.05882353, 0.5529412, 1)
+theme_override_colors/icon_pressed_color = Color(0.8745098, 0, 0.07058824, 1)
+theme_override_colors/icon_hover_color = Color(0.6862745, 0.06666667, 0.56078434, 1)
+theme_override_fonts/font = SubResource("FontVariation_p1u0y")
+text = "JOGAR"
+
+[node name="DescriçãoLabel" type="Label" parent="." unique_id=337070964]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 224.0
+offset_right = 835.0
+offset_bottom = 269.0
+text = "Elabore, disfrute, não disperdiçe!"
+label_settings = SubResource("LabelSettings_fcnqv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="JogarButton" to="." method="_on_jogar_button_pressed"]
