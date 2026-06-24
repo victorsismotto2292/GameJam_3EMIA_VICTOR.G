@@ -12,6 +12,7 @@ var is_dead = false
 var start_position: Vector2
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var hud: CanvasLayer	= $"../hud" # VARIÁVEL DE REFERÊNCIA AO HUD
 
 func _ready() -> void:
 	start_position = global_position

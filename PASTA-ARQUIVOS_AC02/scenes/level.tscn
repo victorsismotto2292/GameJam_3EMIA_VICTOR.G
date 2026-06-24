@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://duk613r0x0mpf" path="res://scenes/Plataforma normal.tscn" id="8_b121j"]
 [ext_resource type="PackedScene" uid="uid://dyl1bxwqxr27k" path="res://scenes/spikes.tscn" id="9_olg7q"]
 [ext_resource type="PackedScene" uid="uid://beq3kykkdt3tq" path="res://scenes/pause_menu.tscn" id="10_olg7q"]
+[ext_resource type="PackedScene" uid="uid://c5mut60mp3mxy" path="res://scenes/hud.tscn" id="11_t1rx8"]
+[ext_resource type="Script" uid="uid://byvm21j52q3yh" path="res://scripts/game_manager.gd" id="12_8iemx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8frs"]
 texture = ExtResource("2_w7c3h")
@@ -7500,3 +7502,9 @@ rotation = 1.5707964
 position = Vector2(-839, 49)
 
 [node name="PauseMenu" parent="." unique_id=1369982233 instance=ExtResource("10_olg7q")]
+
+[node name="Hud" parent="." unique_id=1142441564 instance=ExtResource("11_t1rx8")]
+visible = false
+
+[node name="GameManager" type="Node2D" parent="." unique_id=1626170359]
+script = ExtResource("12_8iemx")
