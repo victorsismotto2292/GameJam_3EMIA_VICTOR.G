@@ -36,14 +36,15 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.91200006
-offset_left = 865.0
-offset_top = 2.0
-offset_right = -45.0
-offset_bottom = -469.976
-	text = "Pontos:"
-	label_settings = SubResource("LabelSettings_g4v7s")
+offset_left = 13.0
+offset_top = 97.0
+offset_right = -897.0
+offset_bottom = -374.976
+text = "Pontos:"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
 
-[node name="ChaveLabel" type="Label" parent="Control"]
+[node name="ChaveLabel" type="Label" parent="Control" unique_id=580340336]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -53,5 +54,18 @@ offset_top = 2.0
 offset_right = -400.0
 offset_bottom = -469.976
 text = "Chave: Não"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+
+[node name="TempoLabel" type="Label" parent="Control" unique_id=397471655]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.91200006
+offset_left = 799.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = -469.976
+text = "Tempo:"
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 1
